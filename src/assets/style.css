@@ -87,11 +87,21 @@ main .meme-wrapper {
      border-radius: 5px;
      display: flex;
      justify-content: center;
+     position: relative;
 }
 
 main .meme-wrapper img {
      height: 400px;
     
+}
+
+main .meme-wrapper .top-bottom-text {
+     position: absolute;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     color: #fff;
 }
 
 @media screen and (min-width: 992px) {
