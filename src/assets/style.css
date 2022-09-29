@@ -5,6 +5,7 @@
 body {
      margin: 0;
      background-color:darkgrey;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* common rules */
@@ -91,8 +92,7 @@ main .meme-wrapper {
 }
 
 main .meme-wrapper img {
-     height: 400px;
-    
+     height: auto;
 }
 
 main .meme-wrapper .top-bottom-text {

@@ -14,10 +14,12 @@ const Main = () => {
      
      function getMemeImage() {
           const randomNumber = Math.floor(Math.random() * allMemes.length);
-          const imgUrl = allMemes[randomNumber].url;
+		const imgUrl = allMemes[randomNumber].url;
+		const name = allMemes[randomNumber].name;
           setMeme(prevMeme => {
                return {
-                    ...prevMeme,
+				...prevMeme,
+				bottomText: name,
                     url: imgUrl
                }
           })

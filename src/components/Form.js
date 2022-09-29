@@ -1,0 +1,160 @@
+/** @format */
+import React from 'react'
+
+export default function Form() {
+
+     const [formData, setFormData] = React.useState({
+          email : '',
+          password : '',
+          passwordConfirm: '',
+          checkBox : false,
+     })
+
+     function handleChange(e) {
+          setFormData(prevFormData => {
+               const { name, value, type, checked } = e.target
+               
+               return {
+                    ...prevFormData,
+                    [name]: type === 'checkbox' ? checked : value
+               }
+          })
+     }
+
+     function handleSubmit(e) {
+          e.preventDefault()
+          if (formData.password === formData.passwordConfirm) {
+               console.log('successfully')
+               if (formData.checkBox === true) {
+                    console.log('Thank you for signing up for our newslatter!')
+               }
+          } else if(formData.password !== formData.passwordConfirm) {
+                console.log('Passowrds do not match')
+          }
+          
+     }
+
+     return (
+          <form onSubmit={handleSubmit}>
+               <input onChange={handleChange} type="email" name="email" value={formData.email} />
+               <input onChange={handleChange} type="password" name="password" value={formData.password} />
+               <input onChange={handleChange} type="password" name="passwordConfirm" value={formData.passwordConfirm} />
+               <input onChange={handleChange} type="checkBox" name="checkBox" checked={formData.checkBox} />
+               <button>Sing Up</button>
+          </form>
+     )
+
+
+
+	// const [formData, setFormData] = React.useState({
+	// 	firstName: '',
+	// 	lastName: '',
+	// 	email: '',
+	// 	comments: '',
+	// 	isFriendly: true,
+	// 	employment: '',
+	// });
+	// console.log(formData.employment);
+
+	// function handleChange(event) {
+	// 	console.log(event);
+	// 	const { name, value, type, checked } = event.target;
+	// 	setFormData((prevFormData) => {
+	// 		return {
+	// 			...prevFormData,
+	// 			[name]: type === 'checkbox' ? checked : value,
+	// 		};
+	// 	});
+	// }
+
+	// return (
+	// 	<form className='react-from'>
+	// 		<input
+	// 			type='text'
+	// 			placeholder='First Name'
+	// 			onChange={handleChange}
+	// 			name='firstName'
+	// 			value={formData.firstName}
+	// 		/>
+	// 		<input
+	// 			type='text'
+	// 			placeholder='Last Name'
+	// 			onChange={handleChange}
+	// 			name='lastName'
+	// 			value={formData.lastName}
+	// 		/>
+	// 		<input
+	// 			type='email'
+	// 			placeholder='Email'
+	// 			onChange={handleChange}
+	// 			name='email'
+	// 			value={formData.email}
+	// 		/>
+	// 		<textarea
+	// 			value={formData.comments}
+	// 			placeholder='Comments'
+	// 			onChange={handleChange}
+	// 			name='comments'
+	// 		/>
+	// 		<input
+	// 			type='checkbox'
+	// 			id='isFriendly'
+	// 			checked={formData.isFriendly}
+	// 			onChange={handleChange}
+	// 			name='isFriendly'
+	// 		/>
+	// 		<label htmlFor='isFriendly'>Are you friendly?</label>
+	// 		<br />
+	// 		<br />
+
+	// 		<fieldset>
+	// 			<legend>Current employment status</legend>
+	// 			<input
+	// 				type='radio'
+	// 				id='unemployed'
+	// 				name='employment'
+	// 				value='unemployed'
+	// 				checked={formData.employment === 'unemployed'}
+	// 				onChange={handleChange}
+	// 			/>
+	// 			<label htmlFor='unemployed'>Unemployed</label>
+	// 			<br />
+
+	// 			<input
+	// 				type='radio'
+	// 				id='part-time'
+	// 				name='employment'
+	// 				value='part-time'
+	// 				checked={formData.employment === 'part-time'}
+	// 				onChange={handleChange}
+	// 			/>
+	// 			<label htmlFor='part-time'>Part-time</label>
+	// 			<br />
+
+	// 			<input
+	// 				type='radio'
+	// 				id='full-time'
+	// 				name='employment'
+	// 				value='full-time'
+	// 				checked={formData.employment === 'full-time'}
+	// 				onChange={handleChange}
+	// 			/>
+	// 			<label htmlFor='full-time'>Full-time</label>
+	// 			<br />
+	// 		</fieldset>
+	// 		<br />
+
+	// 		<label htmlFor='favColor'>What is your favorite color?</label>
+	// 		<br />
+	// 		<select id='favColor'>
+	// 			<option value='red'>Red</option>
+	// 			<option value='orange'>Orange</option>
+	// 			<option value='yellow'>Yellow</option>
+	// 			<option value='green'>Green</option>
+	// 			<option value='blue'>Blue</option>
+	// 			<option value='indigo'>Indigo</option>
+	// 			<option value='violet'>Violet</option>
+	// 		</select>
+	// 	</form>
+	// );
+}
